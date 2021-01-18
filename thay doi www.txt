@@ -1,0 +1,10 @@
+DocumentRoot "E:/php/www"
+<Directory "E:/php/www/">
+
+
+    Nhấp vào Biểu tượng Wamp xanh (Biểu tượng thông báo bên phải thanh tác vụ)> Apache> httpd.conf> Thay thế tất cả ${INSTALL_DIR}/www bằng thư mục của bạn. Cẩn thận khi sử dụng / thay vì \
+    Nhấp vào Biểu tượng Wamp Xanh> Apache> httpd-vhosts.conf> Thay thế lại "www" -Directory bằng của bạn
+    Nhấp vào Biểu tượng Wamp Xanh> "Khởi động lại tất cả các dịch vụ"
+
+DocumentRoot "${INSTALL_DIR}/www"
+<Directory "${INSTALL_DIR}/www/">

@@ -1,0 +1,16 @@
+1/ liet ke san pham co gia 10 tr tro len , masp, ten, gia, so luong
+	select ma, ten, gia, soluong from sanpham where gia > 10000000 
+2/ don hang dat trong ngay 20/5/2019
+	SELECT * FROM `donhang` WHERE ngaydat BETWEEN '2019-05-20 00:00:00' and '2019-05-20 23:59:59'
+3/ cac nha cung cap ma chua cung cap san pham
+SELECT * FROM nhacungcap where ma not in (select DISTINCT manhacungcap from sanpham where manhacungcap is not null)
+
+-- luu y : not in se khong co ket qua neu trong cau truy van sau co gia tri null
+	vd: neu cau sau la select DISTINCT manhacungcap from sanpham where manhacungcap --> se tra ve 1 danh sach co ca gia tri null
+		va cau lenh truoc not in se cho ra ket qua null
+		cau lenh sau phai la select DISTINCT manhacungcap from sanpham where manhacungcap is not null thi cau truoc moi co gia tri tra ve
+		
+SELECT nhacungcap.* FROM nhacungcap left JOIN sanpham on nhacungcap.ma = sanpham.manhacungcap where sanpham.ma is NULL
+
+4/ lay masp, tensp , ten loai, ten nhacc
+SELECT sanpham.ma masp, sanpham.ten tensp, loaisanpham.ten tenloai, nhacungcap.ten tenncc FROM `sanpham` JOIN nhacungcap on sanpham.manhacungcap = nhacungcap.ma join loaisanpham on sanpham.maloai = loaisanpham.ma

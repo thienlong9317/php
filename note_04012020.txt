@@ -1,0 +1,11 @@
+note:
+sử dung PDO (php data object): + giải quyết được vấn đề sql injection
+			 + có thể kết nối nhiều loại dữ liệu - có khả năng mở rộng về sau
+			 
+			 
+các bước 
+1/ kết nối: username, pass, host(localhost), port: 3306 (default)
+2/ chọn database 
+3/ Viết truy vấn
+4/ xử lý giao diện
+5/ đóng kết nối

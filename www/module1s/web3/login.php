@@ -1,15 +1,16 @@
 <?php 
-  include_once('libs/func.php');
-  include_once('libs/quantri.php');
-  if(isset($_COOKIE["user"]))
-    {
-        $qt = new quantri();
-        $mang = explode("|", $_COOKIE['user']);
-        if($qt->login($mang[0], $mang[1]))
-            chuyentrang('index.php');
-    }
-  if(isset($_POST['username'], $_POST['password']) && $_POST['username'] && $_POST['password'])
-  {
+include_once('libs/PDOConnect.php');
+include_once('libs/func.php');
+include_once('libs/quantri.php');
+if(isset($_COOKIE["user"]))
+{
+    $qt = new quantri();
+    $mang = explode("|", $_COOKIE['user']);
+    if($qt->login($mang[0], $mang[1]))
+        chuyentrang('index.php');
+}
+if(isset($_POST['username'], $_POST['password']) && $_POST['username'] && $_POST['password'])
+{
     if(isset($_POST['rm']) && $_POST['rm'])
     {
         $kq=login($_POST['username'], $_POST['password'], $_POST['rm']);
@@ -20,7 +21,7 @@
     {
         chuyentrang('index.php');
     }
-  }
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -94,6 +95,9 @@
                 </p>
                 <p class="mb-0">
                     <a href="register.html" class="text-center">Register a new membership</a>
+                </p>
+                <p class="mb-0">
+                    <a href="clearCookie.php" class="text-center">Clear cookie</a>
                 </p>
             </div>
             <!-- /.login-card-body -->

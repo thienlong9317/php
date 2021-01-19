@@ -28,10 +28,10 @@ $data = readFileProduct("data/products.txt");
                             type="button">
                             Xem
                         </a>
-                        <a class="btn btn-sm btn-danger" href="xoa.php?id=<?=$item['ma']?>" type="button">
+                        <a class="btn btn-sm btn-danger" href="xoaSP.php?id=<?=$item['ma']?>" type="button">
                             Xóa
                         </a>
-                        <a class="btn btn-sm btn-warning" href="sua.php?id=<?=$item['ma']?>" type="button">
+                        <a class="btn btn-sm btn-warning" href="suaSP.php?id=<?=$item['ma']?>" type="button">
                             Sửa
                         </a>
                     </td>

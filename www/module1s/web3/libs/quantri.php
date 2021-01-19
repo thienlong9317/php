@@ -17,8 +17,8 @@
         function suaQuantri( $params)
         {
             $dk = ' ma = ?';
-            $nd = ' ten = ?, tendangnhap = ?, matkhau = ?, manhom = ?, trangthai = ?, ngaycapnhat=?, avt =? ';
-            return $this->sua($this->tenbang, $nd, $params, $dk );
+            $nd = ' ten = ?, matkhau = ?, manhom = ?, trangthai = ?, ngaycapnhat=?, avt =? ';
+            return $this->sua($this->tenbang, $nd,  $dk, $params );
         }
         function xoaQuantri($id)
         {

@@ -14,6 +14,9 @@ function login($username, $password, $rm = 0)
         $qt = new quantri();
         //doc file
         $kq = $qt->login($username, $password);
+        // echo "dasd";
+        // var_dump($kq);
+        // exit;
         if($kq != null)
         {
             $_SESSION['user'] = $kq;

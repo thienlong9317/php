@@ -1,11 +1,11 @@
 <?php
-// include_once('libs/PDOConnect.php'); 
-include_once('libs/func.php');
-// date_default_timezone_set("Asia/Bangkok");
-// if(!islogin())
-// {
-//     chuyentrang('login.php');
-// }
+// include_once("models/PDOConnect.php");
+// include_once('libs/func.php');
+date_default_timezone_set("Asia/Bangkok");
+if (!islogin()) {
+    //chuyentrang('login.php');
+    $controller->toLogin();
+}
 
 ?>
 <!DOCTYPE html>
@@ -37,17 +37,21 @@ include_once('libs/func.php');
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <?php
-            if (isset($_GET['page']) && $_GET['page']) {
-                $view = $_GET['page'];
-                $path = "pages/" . $view . "php";
-                if (!file_exists('pages/' . $view . '.php'))
-                    chuyentrang('404.php');
-            } else
-                $view = 'home';
+            // if (isset($_GET['page']) && $_GET['page']) {
+            //     $view = $_GET['page'];
+            //     $path = "pages/" . $view . "php";
+            //     if (!file_exists('pages/' . $view . '.php'))
+            //         chuyentrang('404.php');
+            // } else
+            //     $view = 'home';
             ?>
             <?php
             include "widgets/content_header.php";
-            //include "pages/" . $view . ".php";
+            if (isset($view)) {
+                //include "pages/" . $view . ".php";
+                include $view;
+            }
+
             ?>
 
         </div>

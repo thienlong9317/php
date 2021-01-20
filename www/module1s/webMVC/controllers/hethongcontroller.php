@@ -1,4 +1,4 @@
-<?php 
+<?php
 class hethongcontroller extends maincontroller
 {
     function index()

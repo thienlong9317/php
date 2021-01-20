@@ -3,11 +3,11 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="<?=$_SESSION['user']->avt==null?'images/no_image.png':$_SESSION['user']->avt?>"
+                        <img src="<?= isset($_SESSION["user"]) ? $_SESSION["user"]->avt : 'images/no_image.png' ?>"
                             class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block"><?=$_SESSION['user']->ten?></a>
+                        <a href="#" class="d-block"><?= isset($_SESSION['user']) ? $_SESSION["user"]->ten : "" ?></a>
                     </div>
                 </div>
 
@@ -28,13 +28,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="?page=addqt" class="nav-link">
+                                    <a href="?ctrl=quantri&act=add" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Thêm</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="?page=dsqt" class="nav-link">
+                                    <a href="?ctrl=quantri&act=ds" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Danh sách</p>
                                     </a>

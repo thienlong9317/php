@@ -1,33 +1,33 @@
 <?php
 ob_start();
 session_start();
-//include_once('libs/quantri.php');
-// function login($username, $password, $rm = 0)
-// {
-//     //var_dump($_COOKIE);
-//     if (isset($_SESSION['user'])) {
-//         return true;
-//     } else {
-//         $qt = new quantri();
-//         //doc file
-//         $kq = $qt->login($username, $password);
-//         // echo "dasd";
-//         // var_dump($kq);
-//         // exit;
-//         if ($kq != null) {
-//             $_SESSION['user'] = $kq;
-//             if ($rm) {
-//                 $cookie_name = "user";
-//                 $cookie_value = $kq->tendangnhap . "|" . $kq->matkhau;
-//                 $time = time() + 3600;
-//                 setcookie($cookie_name, $cookie_value, $time, "/"); // 86400 = 1 day
-//             }
-//             return true;
-//         }
+function login($username, $password, $rm = 0)
+{
+    include_once('libs/quantri.php');
+    //var_dump($_COOKIE);
+    if (isset($_SESSION['user'])) {
+        return true;
+    } else {
+        $qt = new quantri();
+        //doc file
+        $kq = $qt->login($username, $password);
+        // echo "dasd";
+        // var_dump($kq);
+        // exit;
+        if ($kq != null) {
+            $_SESSION['user'] = $kq;
+            if ($rm) {
+                $cookie_name = "user";
+                $cookie_value = $kq->tendangnhap . "|" . $kq->matkhau;
+                $time = time() + 3600;
+                setcookie($cookie_name, $cookie_value, $time, "/"); // 86400 = 1 day
+            }
+            return true;
+        }
 
-//         return false;
-//     }
-// }
+        return false;
+    }
+}
 function islogin()
 {
     return (isset($_SESSION['user']) &&  $_SESSION['user']);

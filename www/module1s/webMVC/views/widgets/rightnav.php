@@ -90,7 +90,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="logout.php" role="button" title="Thoát"><i
+                    <a class="nav-link" href="?act=logout" role="button" title="Thoát"><i
                             class="fas fa-sign-out-alt"></i></a>
                 </li>
                 <li class="nav-item">

@@ -51,7 +51,9 @@ if (!islogin()) {
                 //include "pages/" . $view . ".php";
                 include $view;
             }
-
+            if (isset($a)) {
+                echo "noidung " . $a;
+            }
             ?>
 
         </div>

@@ -1,8 +1,11 @@
 <?php
+include 'system/config/config.php';
 include 'controllers/maincontroller.php';
-include 'libs/func.php';
-include_once "models/PDOConnect.php";
+include 'system/libs/func.php';
+include_once 'system/db/PDOConnect.php';
 $controllername = ($_GET['ctrl'] ?? 'hethong') . 'controller';
+
+
 $path = 'controllers/' . $controllername . '.php';
 if (file_exists($path)) {
     include $path;

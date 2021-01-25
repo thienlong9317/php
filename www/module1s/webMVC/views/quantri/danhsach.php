@@ -23,8 +23,11 @@ $data = $qt->getDanhsach();
             <td><?= $item->tendangnhap ?></td>
             <td><?= $item->trangthai == 1 ? "Actived" : "Deactive" ?></td>
             <td>
-                <a href="?page=suaUser&&id=<?= $item->ma ?>" type="button" class="btn btn-success">Sửa</a>
-                <a href="?page=xoaUser&&id=<?= $item->ma ?>" type="button" class="btn btn-danger">Xóa</a>
+                <a href="<?= href('quantri', 'edit', ['id' => $item->ma]) ?>" type="button"
+                    class="btn btn-success">Sửa</a>
+                <a onclick="return confirm('Có chắc chắn muốn xóa không ?')"
+                    href="<?= href('quantri', 'delete', ['id' => $item->ma]) ?>" type="button"
+                    class="btn btn-danger">Xóa</a>
             </td>
         </tr>
         <?php }

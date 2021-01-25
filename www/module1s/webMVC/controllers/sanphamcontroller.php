@@ -1,17 +1,21 @@
 <?php
 class sanphamcontroller extends maincontroller
 {
+    var $link = 'views/sanpham/';
     function index()
     {
-        include 'views/sanpham/danhsach.php';
+        $view = $this->link . 'danhsach.php';
+        $this->render($view);
     }
     function add()
     {
-        include 'views/sanpham/themsanpham.php';
+        $view = $this->link . 'them.php';
+        $this->render($view);
     }
     function edit()
     {
-        include 'views/sanpham/suasanpham.php';
+        $view = $this->link . 'sua.php';
+        $this->render($view);
     }
     function delete()
     {

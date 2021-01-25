@@ -28,13 +28,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="?ctrl=quantri&act=add" class="nav-link">
+                                    <a href="<?= href('quantri', 'add') ?>" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Thêm</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="?ctrl=quantri&act=ds" class="nav-link">
+                                    <a href="<?= href('quantri', 'index') ?>" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Danh sách</p>
                                     </a>
@@ -51,13 +51,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="?page=themSP" class="nav-link">
+                                    <a href="<?= href('sanpham', 'add') ?>" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Thêm</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="?page=sanpham" class="nav-link">
+                                    <a href="<?= href('sanpham', 'index') ?>" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Danh sách</p>
                                     </a>
@@ -74,13 +74,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="?page=themNCC" class="nav-link">
+                                    <a href="<?= href('NCC', 'add') ?>" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Thêm</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="?page=dsNCC" class="nav-link">
+                                    <a href="<?= href('NCC', 'index') ?>" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Danh sách</p>
                                     </a>
@@ -97,13 +97,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="?page=themLSP" class="nav-link">
+                                    <a href="<?= href('loaisanpham', 'add') ?>" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Thêm</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="?page=sanpham" class="nav-link">
+                                    <a href="<?= href('loaisanpham', 'index') ?>" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Danh sách</p>
                                     </a>
@@ -126,7 +126,7 @@
                                     </a>
                                 </li> -->
                                 <li class="nav-item">
-                                    <a href="?page=sanpham" class="nav-link">
+                                    <a href="<?= href('khachhang', 'index') ?>" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Danh sách</p>
                                     </a>
@@ -149,7 +149,7 @@
                                     </a>
                                 </li> -->
                                 <li class="nav-item">
-                                    <a href="?" class="nav-link">
+                                    <a href="<?= href('donhang', 'index') ?>" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Danh sách</p>
                                     </a>

@@ -1,0 +1,10 @@
+sp02|san pham 2|1100|10||day la san pham 2|san pham 2 la san pham 2|1
+sp03|san pham 3|1200|10||day la san pham 3|san pham 3 la san pham 3|1
+sp04|san pham 4|1300|10||day la san pham 4|san pham 4 la san pham 4|1
+sp05|san pham 5|1400|10||day la san pham 5|san pham 5 la san pham 5|1
+sp06|san pham 6|1500|10||day la san pham 6|san pham 6 la san pham 6|1
+sp07|san pham 7|1600|10||day la san pham 7|san pham 7 la san pham 7|1
+sp08|san pham 8|1700|10||day la san pham 8|san pham 8 la san pham 8|1
+sp09|san pham 9|1800|10||day la san pham 9|san pham 9 la san pham 9|1
+sp10|san pham 10|1900|10||day la san pham 10|san pham 10 la san pham 10|1
+sp11|san pham 11|2000|10||day la san pham 11|san pham 111 la san pham 11|1

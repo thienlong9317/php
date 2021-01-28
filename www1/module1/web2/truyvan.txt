@@ -1,0 +1,90 @@
+*khong phan biet hoa thuong
+*ghi chu: -- , /**/
+
+I: lenh tuong tac vs du lieu khong lam thay doi: truy van chon
+	.SELECT: CHỌN THÔNG TIN ĐỂ LAM KÊT QUẢ SAU KHI THUC THI TRUY VAN
+			*: ĐẠI DIỆN CHO TOÀN BỘ THÔNG TIN CÓ TRONG FROM
+			. TỰ VẼ RA
+			. CẤC CỘT Ở FROM
+	.FROM: THIẾT LẬP 1 NGUỒN CHỨA CÁC THÔNG TIN ĐANG SỬ DỤNG (BẢNG)
+			join: bang
+					uu tien: left,right
+	.WHERE: TẠO ĐIỀU KIỆN LỌC LẠI NGUỒN DỮ LIỆU TRUY XUẤT, và chỉ lọc các thông tin có trong FROM
+			TOÁN TỬ SO SANH: >,<,>=,<=,=,!=
+			TOAN TU KET HOP: AND, OR
+			TOÁN TỬ SQL:  LIKE: PHÉP TÌM GẦN DÚNG ÁP DỤNG CHO CHUỖI
+								* LIKE ĐÚNG Ý NGHĨA KHI TRONG GIA TRI TÌM KIEM CÓ 1 HOA 2 KÝ TỰ SAU:_,%, NẾU KHÔNG  <=> =
+								%: ĐẠI DIEN CHO CHUOI KY TU BAT KY
+								_: DAI DIEN CHO 1 KY TU BATYT KY
+								VD: TEN = 'ABC'
+									TEN  LIKE '%ABC%', TEN LIKE '__G%'
+						  [NOT] IN( DS GIA TRI): TIM TRONG 1 DANH SACH GIA TRI CHO TRƯỚC
+								A =1 OR A = 2 
+						  [NOT] BETWEEN BATDAU AND KETTHUC: 
+								A >=1 AND A<=2
+							IS [NOT] NULL
+	.GROUP BY: phân nhóm dữ liệu theo tiu chí cần để phục vụ cho công việc tính toán thống kê trên từng nhóm đó
+				count(),sum(),min(),max(),avg()
+	.HAVING: dung de loc, nhung chi loc cac ham tinh toan cua group by
+	.ORDER BY: sắp xếp dữ liệu sau khi các mệnh đề khác thực thi xong
+				ASC: tăng dần
+				DESC: giảm dần
+	.LIMIT: giới hạn số luonjg dòng lấy ra 
+			vitribatdaulay,soluongmuonlay
+II: lam thay doi du lieu dang lieu: truy van cap nhat
+	.them
+		insert into <tenbang>(côt) values(giatri)
+	.sua
+		update <tenbang>
+		set ct1 = giatri1,...
+		where dieukienloc
+	.xoa
+		delete 
+		from bang
+		where dieukien
+	
+	
+	SELECT ma,ten,gia,soluong FROM `sanpham` where gia >10000000 
+	
+	SELECT * FROM `donhang` where ngaydat between '2019-05-20 00:00:00' and '2019-05-20 23:59:59' 
+	
+	SELECT sanpham.ten tensp,nhacungcap.ten tenncc FROM `nhacungcap`,sanpham
+where nhacungcap.ma = sanpham.manhacungcap
+
+
+SELECT sanpham.ten tensp,nhacungcap.ten tenncc 
+FROM `nhacungcap` join sanpham on nhacungcap.ma = sanpham.manhacungcap
+
+SELECT nhacungcap.*
+FROM `nhacungcap` left join sanpham on nhacungcap.ma = sanpham.manhacungcap
+where sanpham.ma is null
+
+SELECT manhacungcap, sum(gia) tongtien,count(ma) soluong2
+FROM `sanpham`
+group by manhacungcap
+having soluong2>2
+
+select *
+from (
+    select ten tenabc
+    from sanpham
+    where gia = (SELECT min(gia) FROM `sanpham`)) abc
+	
+	
+	select  max(soluongmh)
+from (SELECT sanpham.maloai,count(sanpham.ma) soluongmh
+        from sanpham
+        group by sanpham.maloai) a
+		
+SELECT count(sanpham.ma) soluongmh from sanpham group by sanpham.maloai order by soluongmh desc limit 1 
+
+
+SELECT sanpham.maloai,count(sanpham.ma) soluongmh
+from sanpham
+group by sanpham.maloai
+having soluongmh = (SELECT count(sanpham.ma) soluongmh from sanpham group by sanpham.maloai order by soluongmh desc limit 1 )
+
+
+SELECT (select count(*) from donhang where year(ngaydat)=2018) '2018',
+       (select count(*) from donhang where year(ngaydat)=2019) '2019',
+        (select count(*) from donhang where year(ngaydat)=2020) '2020'

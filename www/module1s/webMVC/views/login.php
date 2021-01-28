@@ -1,23 +1,3 @@
-<?php
-// include_once('models/PDOConnect.php');
-// include_once('libs/func.php');
-include_once('models/quantri.php');
-if (isset($_COOKIE["user"])) {
-    $qt = new quantri();
-    $mang = explode("|", $_COOKIE['user']);
-    if ($qt->login($mang[0], $mang[1]))
-        chuyentrang('./');
-}
-if (isset($_POST['username'], $_POST['password']) && $_POST['username'] && $_POST['password']) {
-    if (isset($_POST['rm']) && $_POST['rm']) {
-        $kq = login($_POST['username'], $_POST['password'], $_POST['rm']);
-    } else
-        $kq = login($_POST['username'], $_POST['password']);
-    if ($kq === true) {
-        chuyentrang('./');
-    }
-}
-?>
 <!DOCTYPE html>
 <html>
 

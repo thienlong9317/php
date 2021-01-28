@@ -6,7 +6,6 @@ if (!islogin()) {
     //chuyentrang('login.php');
     $controller->toLogin();
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,23 +36,13 @@ if (!islogin()) {
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <?php
-            // if (isset($_GET['page']) && $_GET['page']) {
-            //     $view = $_GET['page'];
-            //     $path = "pages/" . $view . "php";
-            //     if (!file_exists('pages/' . $view . '.php'))
-            //         chuyentrang('404.php');
-            // } else
-            //     $view = 'home';
-            ?>
-            <?php
             include "widgets/content_header.php";
             if (isset($view)) {
-                //include "pages/" . $view . ".php";
                 include $view;
             }
-            if (isset($a)) {
-                echo "noidung " . $a;
-            }
+            // if (isset($a)) {
+            //     echo "noidung " . $a;
+            // }
             ?>
 
         </div>

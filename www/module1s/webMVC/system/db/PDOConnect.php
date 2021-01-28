@@ -31,12 +31,15 @@ class PDOConnect
             //$cn = getConnect();
             $this->checkPDO();
             $this->sth = $this->pdo->prepare($sql);
+
             $this->sth->execute($params);
             if ($type == 1) //lay 1 gia tri
             {
                 $data = $this->sth->fetch(PDO::FETCH_OBJ);
             } else if ($type == 2) //lay nhieu gia tri
+            {
                 $data = $this->sth->fetchAll(PDO::FETCH_OBJ);
+            }
             $this->closeConnect();
         } catch (PDOException $e) {
             exit($e->getMessage());

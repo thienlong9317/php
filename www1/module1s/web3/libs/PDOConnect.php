@@ -1,4 +1,4 @@
-<?php 
+<?php
 class PDOConnect
 {
     var $cn;
@@ -6,13 +6,10 @@ class PDOConnect
     var $pdo;
     function __construct()
     {
-        try
-        {
-            $this->pdo = new PDO('mysql:host=localhost;port=3306;dbname=qlybanhang','root','', [PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION]);
+        try {
+            $this->pdo = new PDO('mysql:host=' . HOST . ';port=' . PORT . ';dbname=' . DBNAME, USERNAME, PASSWORD, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
             $this->pdo->query('set names utf8');
-        }
-        catch(PDOException $e)
-        {
+        } catch (PDOException $e) {
             exit($e->getMessage());
         }
     }
@@ -23,62 +20,52 @@ class PDOConnect
     }
     protected function checkPDO()
     {
-        if($this->pdo == null)
-        {
-            $this->pdo = new PDO('mysql:host=localhost;port=3306;dbname=qlybanhang','root','', [PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION]);
+        if ($this->pdo == null) {
+            $this->pdo = new PDO('mysql:host=' . HOST . ';port=' . PORT . ';dbname=' . DBNAME, USERNAME, PASSWORD, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
             $this->pdo->query('set names utf8');
         }
     }
     protected function truyvan($sql, $params, $type)
     {
-        try
-        {
+        try {
             //$cn = getConnect();
             $this->checkPDO();
             $this->sth = $this->pdo->prepare($sql);
             $this->sth->execute($params);
-            if($type == 1) //lay 1 gia tri
+            if ($type == 1) //lay 1 gia tri
             {
                 $data = $this->sth->fetch(PDO::FETCH_OBJ);
-            }
-            else if($type == 2) //lay nhieu gia tri
+            } else if ($type == 2) //lay nhieu gia tri
                 $data = $this->sth->fetchAll(PDO::FETCH_OBJ);
             $this->closeConnect();
-        }catch(PDOException $e)
-        {
+        } catch (PDOException $e) {
             exit($e->getMessage());
         }
         return $data;
     }
-    
+
     protected function xoaComplete($tenbang, $dk, $params)
     {
-        try
-        {
+        try {
             $this->checkPDO();
-            $sql = "Delete from ".$tenbang." where ".$dk;
+            $sql = "Delete from " . $tenbang . " where " . $dk;
             $this->sth = $this->pdo->prepare($sql);
             $kq = $this->sth->execute($params);
             $this->closeConnect();
-        }
-        catch(PDOException $e)
-        {
+        } catch (PDOException $e) {
             exit($e->getMessage());
         }
         return $kq;
     }
     protected function xoa($tenbang, $dk, $params)
     {
-        try
-        {
+        try {
             $this->checkPDO();
-            $sql = "update ".$tenbang." set trangthai = 2 where ".$dk;
+            $sql = "update " . $tenbang . " set trangthai = 2 where " . $dk;
             $this->sth = $this->pdo->prepare($sql);
             $kq = $this->sth->execute($params);
             $this->closeConnect();
-        }
-        catch(PDOException $e)
-        {
+        } catch (PDOException $e) {
             exit($e->getMessage());
         }
         return $kq;
@@ -86,17 +73,15 @@ class PDOConnect
 
     protected function getDS($tenbang)
     {
-        try
-        {
+        try {
             //$cn = getConnect();
             $this->checkPDO();
-            $sql = 'select * from '.$tenbang;
+            $sql = 'select * from ' . $tenbang;
             $this->sth = $this->pdo->prepare($sql);
             $this->sth->execute();
             $data = $this->sth->fetchAll(PDO::FETCH_OBJ);
             $this->closeConnect();
-        }catch(PDOException $e)
-        {
+        } catch (PDOException $e) {
             exit($e->getMessage());
         }
         return $data;
@@ -104,15 +89,13 @@ class PDOConnect
 
     protected function them($tenbang, $tc, $nd, $params)
     {
-        try
-        {
+        try {
             $this->checkPDO();
-            $sql = "insert into ".$tenbang.$tc." values ".$nd;
+            $sql = "insert into " . $tenbang . $tc . " values " . $nd;
             $this->sth = $this->pdo->prepare($sql);
             $kq = $this->sth->execute($params);
             $this->closeConnect();
-        }catch(PDOException $e)
-        {
+        } catch (PDOException $e) {
             exit($e->getMessage());
         }
         return $kq;
@@ -120,18 +103,16 @@ class PDOConnect
 
     protected function sua($tenbang, $nd, $dk, $params)
     {
-        try
-        {
+        try {
             $this->checkPDO();
-            $sql = "update ".$tenbang." set ".$nd." where ".$dk;
+            $sql = "update " . $tenbang . " set " . $nd . " where " . $dk;
             // echo $sql;
             // var_dump($params);
             // exit;
             $this->sth = $this->pdo->prepare($sql);
             $kq = $this->sth->execute($params);
             $this->closeConnect();
-        }catch(PDOException $e)
-        {
+        } catch (PDOException $e) {
             exit($e->getMessage());
         }
         return $kq;
@@ -139,20 +120,17 @@ class PDOConnect
 
     protected function getObj($tenbang, $dk, $params)
     {
-        try
-        {
+        try {
             //$cn = getConnect();
             $this->checkPDO();
-            $sql = 'select * from '.$tenbang.' where '.$dk;
+            $sql = 'select * from ' . $tenbang . ' where ' . $dk;
             $this->sth = $this->pdo->prepare($sql);
             $this->sth->execute($params);
             $data = $this->sth->fetchAll(PDO::FETCH_OBJ);
             $this->closeConnect();
-        }catch(PDOException $e)
-        {
+        } catch (PDOException $e) {
             exit($e->getMessage());
         }
         return $data;
     }
 }
-?>

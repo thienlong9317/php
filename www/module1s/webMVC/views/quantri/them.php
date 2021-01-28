@@ -1,29 +1,7 @@
-<?php
-include 'models/nhomquantri.php';
-$nqt = new nhomquantri();
-$data = $nqt->getDanhsach();
-if (isset($_POST) && count($_POST) > 0) {
-    include 'libs/quantri.php';
-    $qt =  new quantri();
-    $ten = $_POST['name'] ?? "";
-    $us = $_POST['us'] ?? "";
-    $mk = $_POST['mk'] ?? "";
-    $mnhom = $_POST['mnhom'] ?? "";
-    $tt = $_POST['tt'] ?? "";
-
-    $qt->themQuantri([$ten, $us, $mk, $mnhom, $tt, date("Y-m-d H:m:s"), null, null]);
-    if ($qt) {
-        $tb = '<div class="alert alert-success">Thêm thành công</div>';
-    } else {
-        $tb = '<div class="alert alert-danger">Thêm không thành công</div>';
-    }
-}
-?>
-
 <div class="container-fluid col-5">
     <?= $tb ?? "" ?>
-    <h1 style="text-align: center;color:red">Thêm người dùng</h1>
-    <form action="" method="post">
+    <h1 style="text-align: center;color:red"><?= $title ?></h1>
+    <form action="" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="exampleFormControlInput1">Tên</label>
             <input type="text" class="form-control" placeholder="Ten hien thi" name="name">
@@ -50,6 +28,17 @@ if (isset($_POST) && count($_POST) > 0) {
                 <option value="1">Active</option>
                 <option value="0">Deactive</option>
             </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Trạng thái</label>
+            <select class="form-control" name="tt">
+                <option value="1">Active</option>
+                <option value="0">Deactive</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="">Hình đại diện</label>
+            <input type="file" name="avt" id="" class="form-control" placeholder="" aria-describedby="helpId">
         </div>
         <button type="submit" class="btn btn-success" style="justify-content: center;">Thêm</button>
     </form>

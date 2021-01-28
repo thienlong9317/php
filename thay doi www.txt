@@ -12,3 +12,7 @@ DocumentRoot "${INSTALL_DIR}/www"
 de thay doi thoi gian timeout login cua mysql
 vao php.ini line 1434 chinh session.gc_maxlifetime = 1440 thanh session.gc_maxlifetime = 86400
 86400 = 24 * 60 *60 (1 ngay)
+
+
+C:\Users\hv\AppData\Roaming\Code\User
+file setting.json

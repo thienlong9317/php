@@ -1,39 +1,40 @@
 <?php
-    class quantri extends PDOConnect
+class donhang extends PDOConnect
+{
+    private $tenbang = 'donhang';
+    function __construct()
     {
-        private $tenbang = 'quantri';
-        function __construct()
-        {
-            parent::__construct();
-            //$this->tenbang = 'quantri';
-            return $this;
-        }
-        function themQuantri($params)
-        {
-            $tc = '(ten, tendangnhap, matkhau, manhom, trangthai, ngaytao, ngaycapnhat, avt)';
-            $nd = '(?, ?, ?, ?, ?, ?, ?, ?)';
-            return $this->them($this->tenbang, $tc, $nd, $params);
-        }
-        function suaQuantri( $params)
-        {
-            $dk = ' ma = ?';
-            $nd = ' ten = ?, matkhau = ?, manhom = ?, trangthai = ?, ngaycapnhat=?, avt =? ';
-            return $this->sua($this->tenbang, $nd,  $dk, $params );
-        }
-        function xoaQuantri($id)
-        {
-            return $this->xoa($this->tenbang, " ma = ?", [$id]);
-        }
-        function getDanhsach()
-        {
-            return $this->getDS($this->tenbang);
-        }
-        function getQuantri($id)
-        {
-            return $this->getObj($this->tenbang," ma = ?", [$id]);
-        }
-        function login($username, $pw)
-        {
-            return $this->truyvan('SELECT * FROM `quantri` WHERE tendangnhap =? and matkhau=?', [$username, $pw], 1);
-        }
+        parent::__construct();
+        //$this->tenbang = 'quantri';
+        return $this;
     }
+    function themDonHang($params)
+    {
+        $tc = '(ngaydat, sodonhang, makhachhang, tongtien, phiship, trangthaidonhang, trangthai, ngaytao, ngaycapnhat)';
+        $nd = '(?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        return $this->them($this->tenbang, $tc, $nd, $params);
+    }
+    function suaDonHang($params)
+    {
+        $dk = ' ma = ?';
+        $nd = ' tongtien = ?, phiship = ?, trangthaidonhang = ?, trangthai = ?, ngaycapnhat=? ';
+        return $this->sua($this->tenbang, $nd,  $dk, $params);
+    }
+    function xoaDonHang($id)
+    {
+        return $this->xoa($this->tenbang, " ma = ?", [$id]);
+    }
+    function getDanhsach()
+    {
+        return $this->getDS($this->tenbang);
+    }
+    function getDonHang($id)
+    {
+        return $this->getObj($this->tenbang, " ma = ?", [$id]);
+    }
+    function getDetail($id)
+    {
+        $sql = "SELECT ctdh.ngaytao ngaydat, sp.ten sanpham, ctdh.soluong, ctdh.gia, ctdh.giamgia giagiam, ctdh.trangthai FROM `chitietdonhang` ctdh JOIN sanpham sp on ctdh.masanpham = sp.ma WHERE madonhang = ?";
+        return $this->truyvan($sql, [(int)$id], 2);
+    }
+}

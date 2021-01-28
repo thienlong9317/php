@@ -17,19 +17,16 @@ $data = $qt->getDanhsach();
     <tbody>
         <?php if ($data) {
             foreach ($data as $item) { ?>
-        <tr>
-            <td><?= $item->ma ?></td>
-            <td><?= $item->ten ?></td>
-            <td><?= $item->tendangnhap ?></td>
-            <td><?= $item->trangthai == 1 ? "Actived" : "Deactive" ?></td>
-            <td>
-                <a href="<?= href('quantri', 'edit', ['id' => $item->ma]) ?>" type="button"
-                    class="btn btn-success">Sửa</a>
-                <a onclick="return confirm('Có chắc chắn muốn xóa không ?')"
-                    href="<?= href('quantri', 'delete', ['id' => $item->ma]) ?>" type="button"
-                    class="btn btn-danger">Xóa</a>
-            </td>
-        </tr>
+                <tr>
+                    <td><?= $item->ma ?></td>
+                    <td><?= $item->ten ?></td>
+                    <td><?= $item->tendangnhap ?></td>
+                    <td><?= $item->trangthai == 1 ? "Actived" : "Deactive" ?></td>
+                    <td>
+                        <a href="<?= href('quantri', 'form', ['id' => $item->ma, 'page' => 'edit']) ?>" type="button" class="btn btn-success">Sửa</a>
+                        <a onclick="return confirm('Có chắc chắn muốn xóa không ?')" href="<?= href('quantri', 'delete', ['id' => $item->ma]) ?>" type="button" class="btn btn-danger">Xóa</a>
+                    </td>
+                </tr>
         <?php }
         } ?>
     </tbody>

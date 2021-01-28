@@ -5,6 +5,11 @@ class hethongcontroller extends maincontroller
     {
         //include 'views/trangchu.php';
         $a = 123;
+        date_default_timezone_set("Asia/Bangkok");
+        if (!islogin()) {
+            //chuyentrang('login.php');
+            $controller->toLogin();
+        }
         $this->render(null, ['a' => $a]);
     }
     function contact()

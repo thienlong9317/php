@@ -1,6 +1,6 @@
 <div class="container-fluid col-5">
     <?= $tb ?? "" ?>
-    <h1 style="text-align: center;color:red"><?= $title ?></h1>
+    <h1 style="text-align: center;color:red">Thêm người dùng</h1>
     <form action="" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="exampleFormControlInput1">Tên</label>

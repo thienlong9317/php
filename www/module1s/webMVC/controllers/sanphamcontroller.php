@@ -4,8 +4,19 @@ class sanphamcontroller extends maincontroller
     var $link = 'views/sanpham/';
     function index()
     {
+        include_once('models/sanpham.php');
+        $qt =  new sanpham();
+        $data = $qt->getDanhsach();
         $view = $this->link . 'danhsach.php';
-        $this->render($view);
+        $this->render($view, ['data' => $data]);
+    }
+    function form()
+    {
+        if (isset($_GET['page']) && $_GET['page'] == 'edit') {
+            $this->edit();
+        } else {
+            $this->add();
+        }
     }
     function add()
     {

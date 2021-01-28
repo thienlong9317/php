@@ -1,54 +1,26 @@
 <div class="container-fluid col-8">
     <?= $tb ?? "" ?>
-    <h1 style="text-align: center;color:red">Thêm sản phẩm</h1>
+    <h1 style="text-align: center;color:red"><?= $title ?></h1>
     <form action="" method="post">
         <div class="form-group">
             <label for="exampleFormControlInput1">Tên</label>
-            <input type="text" class="form-control" placeholder="Tên" name="name">
-        </div>
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Giá</label>
-            <input type="text" class="form-control" placeholder="Giá" name="gia">
+            <input type="text" class="form-control" placeholder="Tên" name="name" value="<?= $lsp[0]->ten ?? "" ?>">
         </div>
         <div class="form-group">
             <label for="exampleFormControlInput1">Mô tả</label>
             <input type="text" class="form-control" placeholder="Mô tả" name="mota">
         </div>
         <div class="form-group">
-            <label for="">Hình đại diện</label>
+            <label for="">Icon</label>
             <input type="file" name="hinhdaidien" id="" class="form-control" placeholder="" aria-describedby="helpId">
         </div>
         <div class="form-group">
-            <label for="">Video</label>
-            <input type="file" name="video" id="" class="form-control" placeholder="" aria-describedby="helpId">
-        </div>
-        <div class="form-group">
-            <label for="exampleFormControlSelect1">Mã nhà cung cấp</label>
-            <select class="form-control" name="mNCC">
+            <label for="exampleFormControlSelect1">Mã cha</label>
+            <select class="form-control" name="macha">
                 <?php foreach ($data as $item) { ?>
                 <option value="<?= $item->ma ?>"><?= $item->ten ?></option>
                 <?php } ?>
             </select>
-        </div>
-        <div class="form-group">
-            <label for="exampleFormControlSelect1">Mã loại</label>
-            <select class="form-control" name="mLoai">
-                <?php foreach ($data as $item) { ?>
-                <option value="<?= $item->ma ?>"><?= $item->ten ?></option>
-                <?php } ?>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="">Hình chi tiết</label>
-            <input type="file" name="hinhchitiet" id="" class="form-control" placeholder="" aria-describedby="helpId">
-        </div>
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Mô tả chi tiết</label>
-            <input type="text" class="form-control" placeholder="Mô tả" name="mtChitiet">
-        </div>
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Mã vạch</label>
-            <input type="text" class="form-control" placeholder="Mô tả" name="mavach">
         </div>
         <div class="form-group">
             <label for="exampleFormControlInput1">Tiêu đề</label>
@@ -69,10 +41,6 @@
         <div class="form-group">
             <label for="exampleFormControlInput1">Tên rút gọn</label>
             <input type="text" class="form-control" placeholder="Mô tả" name="tenrutgon">
-        </div>
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Số lượng</label>
-            <input type="text" class="form-control" placeholder="Mô tả" name="soluong">
         </div>
         <div class="form-group">
             <label for="exampleFormControlSelect1">Trạng thái</label>

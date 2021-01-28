@@ -3,7 +3,7 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="<?= isset($_SESSION["user"]) ? $_SESSION["user"]->avt : 'images/no_image.png' ?>"
+                        <img src="<?= (isset($_SESSION["user"]) && $_SESSION["user"]->avt != null) ? $_SESSION["user"]->avt : 'images/no_image.png' ?>"
                             class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
